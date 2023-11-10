@@ -13,7 +13,7 @@ npm install generate-datafaker
 ## Uso
 
 ```js
-const faker = require("generate-data-faker");
+const faker = require("generate-datafaker");
 ```
 
 ## Funcionalidades
