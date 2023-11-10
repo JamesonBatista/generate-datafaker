@@ -1,12 +1,15 @@
 {
-  "name": "generate-datafaker",
+  "name": "@jambatistaqa/generate-datafaker",
   "version": "1.0.0",
   "description": "generate data faker",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": [
+    "faker",
+    "datafaker"
+  ],
   "author": "Jam Batista",
   "license": "ISC",
   "dependencies": {
