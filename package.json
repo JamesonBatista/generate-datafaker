@@ -1,5 +1,5 @@
 {
-  "name": "generate_datafaker",
+  "name": "generate-datafaker",
   "version": "1.0.0",
   "description": "generate data faker",
   "main": "index.js",
