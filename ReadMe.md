@@ -48,7 +48,7 @@ const faker = require("generate-data-faker");
 ## Modo de uso
 
 ```js
-const faker = require("generate-data-faker");
+const faker = require("generate-datafaker");
 
 let bairro = faker.generateNeighborhood(); // Santo Amaro
 
