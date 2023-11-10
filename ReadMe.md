@@ -1,4 +1,4 @@
-# generate-data-faker
+# generate-datafaker
 
 `generate-datafaker` é uma biblioteca JavaScript projetada para facilitar a geração de dados fictícios para uso em testes de aplicações web ou APIs. Com uma ampla gama de funções, esta biblioteca pode criar dados realistas como nomes, endereços, números de telefone e muito mais.
 
@@ -14,10 +14,6 @@ npm install generate-datafaker
 
 ```js
 const faker = require("generate-data-faker");
-
-let neighborhood = faker.generateNeighborhood();
-let cep = faker.generateCEP();
-let cnpj = faker.generateCNPJ();
 ```
 
 ## Funcionalidades
@@ -46,6 +42,8 @@ let cnpj = faker.generateCNPJ();
 `generateLoremIpsum():` Retorna um texto dependendo do tamanho requerido<br>
 `generateDate():`Retorna um objeto de datas e vários formatos<br>
 `generatePassword():` Retorna um password incluindo letras numeros e caracters<br>
+`generateFakePolicyNumber():` Retorna um número ficticio de apolice de seguros <br>
+`generateCompleteCar():` Retorna dados completo de um carro <br>
 
 ## Modo de uso
 
@@ -75,14 +73,15 @@ let cnh = faker.generateCNH(); // Ex: 12345678901
 let name = faker.generateName(); // Ex: João Carlos
 let pispasep = faker.generatePISPASEP(); // Ex: 120.12345.12-3
 let creditCard = faker.generateCreditCard(); // Ex: 1234 5678 9123 4567
-let age = faker.generateAge(); // Ex: 30
+let age = faker.generateAge(18, 70); // Ex: 30   min 18, max 70
 let rne = faker.generateRNE(); // Ex: V123456-7
 let plate = faker.generatePlate(); // Ex: ABC-1234
 let uuidv4 = faker.generateUuidv4(); // Ex: 123e4567-e89b-12d3-a456-426614174000
-let loremIpsum = faker.generateLoremIpsum(); // Ex: Lorem ipsum dolor sit amet...
+let loremIpsum = faker.generateLoremIpsum(19); // Ex: Lorem ipsum dolor sit amet... 10 palavras
 let date = faker.generateDate(); // Ex: 01/01/2020
-
+let apolice = faker.generateFakePolicyNumber(10); // quantidade de caracters
 let password = faker.generatePassword();
+let car = generateCompleteCar();
 ```
 
 ### generateDate()
@@ -94,21 +93,21 @@ pode ser receber parametros que modificam das datas
 
 ```json
 {
-  "iso": "2019-09-06T18:10:49.579Z",
-  "utc": "Fri, 06 Sep 2019 18:10:49 GMT",
-  "stringFormat": "Fri Sep 06 2019 15:10:49 GMT-0300 (Horário Padrão de Brasília)",
-  "localDate": "06/09/2019",
-  "localTime": "15:10:49",
-  "localDateTime": "06/09/2019 15:10:49",
-  "timestamp": 1567793449579,
-  "customFormat": "2019-09-06 15:10:49",
+  "iso": "2023-11-09T10:22:11.564Z",
+  "utc": "Thu, 09 Nov 2023 10:22:11 GMT",
+  "stringFormat": "Thu Nov 09 2023 07:22:11 GMT-0300 (Horário Padrão de Brasília)",
+  "localDate": "09/11/2023",
+  "localTime": "07:22:11",
+  "localDateTime": "09/11/2023 07:22:11",
+  "timestamp": 1699525331564,
+  "customFormat": "2023-11-09 07:22:11",
   "br": {
-    "date": "06/09/2019",
-    "time": "15:10:49",
-    "dateTime": "06/09/2019 15:10:49",
-    "timeStamp": 1567793449579,
-    "iso": "2019-09-06T18:10:49.579Z",
-    "stringFormat": "Fri Sep 06 2019 15:10:49 GMT-0300 (Horário Padrão de Brasília)"
+    "date": "09/11/2023",
+    "time": "07:22:11",
+    "dateTime": "09/11/2023 07:22:11",
+    "timeStamp": 1699525331564,
+    "iso": "2023-11-09T10:22:11.564Z",
+    "stringFormat": "Thu Nov 09 2023 07:22:11 GMT-0300 (Horário Padrão de Brasília)"
   }
 }
 ```

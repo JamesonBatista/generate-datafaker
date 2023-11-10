@@ -6811,32 +6811,24 @@ function generateAge(min = 18, max = 60) {
 }
 
 function generateRNE() {
-  // Letra inicial - pode ser trocada por qualquer letra do alfabeto
-  const letter = "W"; // Exemplo, 'W' para estrangeiros em geral
+  const letter = "W";
 
-  // Gera um número aleatório de 8 dígitos
   const randomNumber = Math.floor(Math.random() * 100000000)
     .toString()
     .padStart(8, "0");
 
-  // Gera um dígito verificador aleatório
   const checkDigit = Math.floor(Math.random() * 10);
 
-  // Retorna o RNE formatado
   return `${letter}${randomNumber}-${checkDigit}`;
 }
 function generatePlate() {
-  // Função auxiliar para gerar uma letra aleatória
   const randomLetter = () =>
     String.fromCharCode(65 + Math.floor(Math.random() * 26));
 
-  // Função auxiliar para gerar um dígito numérico aleatório
   const randomDigit = () => Math.floor(Math.random() * 10);
 
-  // Gera uma placa no formato antigo
   const oldPlate = `${randomLetter()}${randomLetter()}${randomLetter()}-${randomDigit()}${randomDigit()}${randomDigit()}${randomDigit()}`;
 
-  // Gera uma placa no formato Mercosul
   const mercosulPlate = `${randomLetter()}${randomLetter()}${randomLetter()}${randomDigit()}${randomLetter()}${randomDigit()}${randomDigit()}`;
 
   return {
@@ -6850,21 +6842,17 @@ function generateUuidv4() {
 }
 
 function generateLoremIpsum(wordCount = 1) {
-  // Um trecho básico do Lorem Ipsum para base de repetição
   const loremIpsum =
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
 
-  // Divide o texto em palavras
   const words = loremIpsum.split(" ");
   const totalWords = words.length;
   let result = "";
 
-  // Repete as palavras até atingir a contagem desejada
   for (let i = 0; i < wordCount; i++) {
     result += words[i % totalWords] + " ";
   }
 
-  // Remove o último espaço e adiciona um ponto final.
   result = result.trim() + ".";
 
   return result;
@@ -6873,17 +6861,14 @@ function generateLoremIpsum(wordCount = 1) {
 function generateDate(day = 0, month = 0, year = 0) {
   const resultDate = new Date();
 
-  // Aplica os offsets para dias, meses e anos
   resultDate.setDate(resultDate.getDate() + day);
   resultDate.setMonth(resultDate.getMonth() + month);
   resultDate.setFullYear(resultDate.getFullYear() + year);
 
-  // Função auxiliar para adicionar zeros à esquerda
   function padTo2Digits(num) {
     return num.toString().padStart(2, "0");
   }
 
-  // Formato personalizado para o Brasil
   function brazilianFormat(date) {
     return {
       date: `${padTo2Digits(date.getDate())}/${padTo2Digits(
@@ -6903,7 +6888,6 @@ function generateDate(day = 0, month = 0, year = 0) {
     };
   }
 
-  // Gerando os diferentes formatos de data
   const dateFormats = {
     iso: resultDate.toISOString(),
     utc: resultDate.toUTCString(),
@@ -6933,8 +6917,504 @@ function generatePassword(length = 10) {
   }
   return password;
 }
-console.log(generateDate(-1, -2, -4));
 
+function generateFakePolicyNumber(length = 10) {
+  const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+  let policyNumber = "";
+
+  for (let i = 0; i < length; i++) {
+    const randomIndex = Math.floor(Math.random() * characters.length);
+    policyNumber += characters.charAt(randomIndex);
+  }
+
+  return policyNumber;
+}
+const cars = [
+  {
+    marca: "Hyundai",
+    modelo: "Elantra GLS 1.6",
+    renavam: "20938726328",
+    placa: "IDG-0919",
+    cor: "Dourado",
+    ano: "1992",
+  },
+  {
+    marca: "LAMBORGHINI",
+    modelo: "Gallardo Coupe LP550-2 Bicolore",
+    renavam: "61628445905",
+    placa: "KBW-7815",
+    cor: "Vermelho",
+    ano: "2012",
+  },
+  {
+    marca: "LIFAN",
+    modelo: "FOISON 1.3 16V 85cv 2p",
+    renavam: "08105980647",
+    placa: "HWF-6534",
+    cor: "Laranja",
+    ano: "2014",
+  },
+  {
+    marca: "Volvo",
+    modelo: "S60 T-5 MOMENTUM 2.0 245cv 4p",
+    renavam: "81036771550",
+    placa: "MZC-7196",
+    cor: "Branco",
+    ano: "2015",
+  },
+  {
+    marca: "TAC",
+    modelo: "Stark 2.3 4WD 127cv TDI Diesel 3p",
+    renavam: "01926747221",
+    placa: "HWA-7418",
+    cor: "Marrom",
+    ano: "2010",
+  },
+  {
+    marca: "Mazda",
+    modelo: "RX 7 2.6 Turbo",
+    renavam: "44593524170",
+    placa: "MWR-7141",
+    cor: "Laranja",
+    ano: "1993",
+  },
+  {
+    marca: "Troller",
+    modelo: "T-4 4x4 3.2 TGV tdi Cap. R",
+    renavam: "80134653627",
+    placa: "JFS-5772",
+    cor: "Prata",
+    ano: "2013",
+  },
+  {
+    marca: "JAC",
+    modelo: "J3 turin Sedan Brasil 1.4 16V 4p Mec.",
+    renavam: "22513182137",
+    placa: "NBC-9372",
+    cor: "Dourado",
+    ano: "2012",
+  },
+  {
+    marca: "Saturn",
+    modelo: "SL-2 1.9",
+    renavam: "78835881578",
+    placa: "KBX-9083",
+    cor: "Cinza",
+    ano: "1991",
+  },
+  {
+    marca: "Hyundai",
+    modelo: "Atos Prime GLS 1.0 Semi-Aut.",
+    renavam: "26176525762",
+    placa: "MUU-0880",
+    cor: "Vermelho",
+    ano: "2000",
+  },
+  {
+    marca: "Asia Motors",
+    modelo: "AM-825 Luxo 4.0 Diesel",
+    renavam: "97127926391",
+    placa: "LCA-9654",
+    cor: "Prata",
+    ano: "1994",
+  },
+  {
+    marca: "Porsche",
+    modelo: "911 Carrera Evo Cabriolet-4",
+    renavam: "36839539658",
+    placa: "HCZ-7761",
+    cor: "Prata",
+    ano: "1998",
+  },
+  {
+    marca: "BRM",
+    modelo: "Buggy W. Turing/Luxo/M-11 Absolvt 1.6 8V",
+    renavam: "32712366855",
+    placa: "JVK-4428",
+    cor: "Branco",
+    ano: "2005",
+  },
+  {
+    marca: "Maserati",
+    modelo: "Gran Turismo Sport 4.7 V8 32v 460cv",
+    renavam: "81361668224",
+    placa: "NEM-7570",
+    cor: "Verde",
+    ano: "2013",
+  },
+  {
+    marca: "MG",
+    modelo: "MG6 1.8 16V Turbo 170cv Aut.",
+    renavam: "32629457075",
+    placa: "LWF-9287",
+    cor: "Dourado",
+    ano: "2011",
+  },
+  {
+    marca: "VW - VolksWagen",
+    modelo: "Gol Comfortline 1.0 T. Flex 8V 3p",
+    renavam: "44898806927",
+    placa: "JIT-2388",
+    cor: "Dourado",
+    ano: "2015",
+  },
+  {
+    marca: "CHANA",
+    modelo: "Utility 1.0 8V 53cv  (Furg",
+    renavam: "40726211868",
+    placa: "NBD-3590",
+    cor: "Azul",
+    ano: "2005",
+  },
+  {
+    marca: "CHANGAN",
+    modelo: "MINI STAR Utility 1.0 8V 53cv (Furg",
+    renavam: "25225755489",
+    placa: "NAK-8052",
+    cor: "Dourado",
+    ano: "2012",
+  },
+  {
+    marca: "Fibravan",
+    modelo: "Buggy Vip 1.8 8V",
+    renavam: "93428991068",
+    placa: "EPW-8069",
+    cor: "Dourado",
+    ano: "2006",
+  },
+  {
+    marca: "Agrale",
+    modelo: "MARRU",
+    renavam: "62544015525",
+    placa: "HVL-1017",
+    cor: "Cinza",
+    ano: "2004",
+  },
+  {
+    marca: "ASTON MARTIN",
+    modelo: "Rapide 6.0 V12 477cv",
+    renavam: "26356055608",
+    placa: "BBM-2603",
+    cor: "Prata",
+    ano: "2012",
+  },
+  {
+    marca: "Gurgel",
+    modelo: "Carajas Diesel",
+    renavam: "28622985221",
+    placa: "KKH-4393",
+    cor: "Verde",
+    ano: "1985",
+  },
+  {
+    marca: "LIFAN",
+    modelo: "620 TALENT 1.6 16V 106cv 4p",
+    renavam: "15124889121",
+    placa: "HWU-5477",
+    cor: "Bege",
+    ano: "2009",
+  },
+  {
+    marca: "Nissan",
+    modelo: "XTerra SE 4x4 2.8 132/140cv TB Int.Dies.",
+    renavam: "95341034947",
+    placa: "EML-6668",
+    cor: "Prata",
+    ano: "2003",
+  },
+  {
+    marca: "Lada",
+    modelo: "Niva 1.7i 4x4",
+    renavam: "94440827556",
+    placa: "MWC-5471",
+    cor: "Vermelho",
+    ano: "1998",
+  },
+  {
+    marca: "VW - VolksWagen",
+    modelo: "Saveiro 2.0 Mi",
+    renavam: "24511681612",
+    placa: "HPP-1825",
+    cor: "Prata",
+    ano: "2000",
+  },
+  {
+    marca: "Fibravan",
+    modelo: "Buggy Plus 1.6 8V",
+    renavam: "81288658490",
+    placa: "NBV-2391",
+    cor: "Preto",
+    ano: "1989",
+  },
+  {
+    marca: "CBT Jipe",
+    modelo: "Javali 3.0 4x4 Diesel",
+    renavam: "59088303217",
+    placa: "MYN-4812",
+    cor: "Dourado",
+    ano: "1988",
+  },
+  {
+    marca: "SSANGYONG",
+    modelo: "Rexton II 2.7 20V 165/186cv TDI Dies.Aut",
+    renavam: "02049316466",
+    placa: "NBM-5929",
+    cor: "Preto",
+    ano: "2006",
+  },
+  {
+    marca: "Cadillac",
+    modelo: "Deville/Eldorado 4.9",
+    renavam: "82745476800",
+    placa: "JYL-5705",
+    cor: "Laranja",
+    ano: "1991",
+  },
+  {
+    marca: "Matra",
+    modelo: "Pick-Up 4x2 Curto/Longo 2.5 TDI Diesel",
+    renavam: "25108474246",
+    placa: "HKN-8483",
+    cor: "Bege",
+    ano: "2002",
+  },
+  {
+    marca: "Saab",
+    modelo: "9000 CD 2.3 Turbo",
+    renavam: "96814203676",
+    placa: "NEZ-1409",
+    cor: "Cinza",
+    ano: "1992",
+  },
+  {
+    marca: "Rover",
+    modelo: "Mini Cooper 1.3",
+    renavam: "11462420081",
+    placa: "HPQ-5552",
+    cor: "Branco",
+    ano: "1992",
+  },
+  {
+    marca: "Buggy",
+    modelo: "Buggy 1.6/ TST/ RS 1.6 4-Lug.",
+    renavam: "00753589524",
+    placa: "KFP-7404",
+    cor: "Prata",
+    ano: "1985",
+  },
+  {
+    marca: "Toyota",
+    modelo: "Hilux CD SRV 4x2 3.0 8V 90cv Diesel",
+    renavam: "55436945808",
+    placa: "MOS-0196",
+    cor: "Verde",
+    ano: "2002",
+  },
+  {
+    marca: "Hyundai",
+    modelo: "Sonata GL 2.0 4p",
+    renavam: "48217097264",
+    placa: "KEQ-7143",
+    cor: "Azul",
+    ano: "1992",
+  },
+  {
+    marca: "Peugeot",
+    modelo: "605 SRi/ SLi 2.0",
+    renavam: "02464692152",
+    placa: "AXP-8138",
+    cor: "Amarelo",
+    ano: "1994",
+  },
+  {
+    marca: "Mercury",
+    modelo: "Sable LS 3.0 V6",
+    renavam: "50746089976",
+    placa: "NEZ-3923",
+    cor: "Preto",
+    ano: "1992",
+  },
+  {
+    marca: "LAMBORGHINI",
+    modelo: "Gallardo Coupe Valentino Balboni LP550-2",
+    renavam: "38018223190",
+    placa: "JYY-5788",
+    cor: "Amarelo",
+    ano: "2010",
+  },
+  {
+    marca: "Lexus",
+    modelo: "LS 430 4.3 32V 281cv",
+    renavam: "62506982220",
+    placa: "NDP-1581",
+    cor: "Cinza",
+    ano: "2001",
+  },
+  {
+    marca: "Buggy",
+    modelo: "Buggy 1.6/ TST/ RS 1.6 4-Lug.",
+    renavam: "22564302300",
+    placa: "MYJ-8253",
+    cor: "Prata",
+    ano: "1985",
+  },
+  {
+    marca: "Fibravan",
+    modelo: "Buggy Off Road 1.8 8V",
+    renavam: "36939814677",
+    placa: "HWB-1241",
+    cor: "Amarelo",
+    ano: "2009",
+  },
+  {
+    marca: "Agrale",
+    modelo: "MARRU",
+    renavam: "79389437837",
+    placa: "MYV-5753",
+    cor: "Azul",
+    ano: "2008",
+  },
+  {
+    marca: "Cross Lander",
+    modelo: "CL-244 2.8 132cv 4x4 TB Int. Diesel",
+    renavam: "57237910369",
+    placa: "LWU-3781",
+    cor: "Bege",
+    ano: "2003",
+  },
+  {
+    marca: "Mercury",
+    modelo: "Sable LS 3.0 V6",
+    renavam: "53254094113",
+    placa: "LVV-7277",
+    cor: "Dourado",
+    ano: "1992",
+  },
+  {
+    marca: "Ford",
+    modelo: "Explorer XLT 4x2 4.0 V6",
+    renavam: "88154751468",
+    placa: "EKT-6176",
+    cor: "Preto",
+    ano: "1991",
+  },
+  {
+    marca: "Fyber",
+    modelo: "Buggy 2000W 1.8 8V/ 1.8 8V Flex",
+    renavam: "43922298720",
+    placa: "KHI-7680",
+    cor: "Azul",
+    ano: "2004",
+  },
+  {
+    marca: "Alfa Romeo",
+    modelo: "145 Quadrifoglio 2.0",
+    renavam: "14242906222",
+    placa: "MNC-7235",
+    cor: "Prata",
+    ano: "1996",
+  },
+  {
+    marca: "Suzuki",
+    modelo: "Swift Sport 1.6 16V 5p Mec.",
+    renavam: "78758383378",
+    placa: "CDZ-0098",
+    cor: "Marrom",
+    ano: "2015",
+  },
+  {
+    marca: "Envemo",
+    modelo: "Camper GL/GLS 4x4 4.0 Diesel",
+    renavam: "35036583246",
+    placa: "HTD-3589",
+    cor: "Preto",
+    ano: "1991",
+  },
+  {
+    marca: "Seat",
+    modelo: "Cordoba 1.6L",
+    renavam: "87392555684",
+    placa: "NEI-3513",
+    cor: "Marrom",
+    ano: "1999",
+  },
+  {
+    marca: "Maserati",
+    modelo: "GranCabrio 4.7 V8 32V 440cv",
+    renavam: "12334605338",
+    placa: "HZT-6782",
+    cor: "Bege",
+    ano: "2010",
+  },
+  {
+    marca: "RELY",
+    modelo: "PICK-UP Q22D CS 1.0 2p",
+    renavam: "06347647579",
+    placa: "NDC-6024",
+    cor: "Azul",
+    ano: "2014",
+  },
+  {
+    marca: "Fyber",
+    modelo: "Buggy 2000W 1.6 8V",
+    renavam: "08889739094",
+    placa: "HPY-1298",
+    cor: "Marrom",
+    ano: "2016",
+  },
+  {
+    marca: "Rover",
+    modelo: "Mini Cooper 1.3",
+    renavam: "49835355767",
+    placa: "JVO-4217",
+    cor: "Preto",
+    ano: "1992",
+  },
+  {
+    marca: "RAM",
+    modelo: "2500 LARAMIE SLT TROPIV. 6.7 4x4 Diesel",
+    renavam: "53543910904",
+    placa: "KCN-6547",
+    cor: "Vermelho",
+    ano: "2012",
+  },
+  {
+    marca: "GEELY",
+    modelo: "EC7 1.8 16V 130cv 4p Mec.",
+    renavam: "58749677238",
+    placa: "MRX-5895",
+    cor: "Amarelo",
+    ano: "2014",
+  },
+  {
+    marca: "CHANA",
+    modelo: "Cargo CE 1.0 8V 53cv (Pick-Up)",
+    renavam: "57125267316",
+    placa: "ITM-7657",
+    cor: "Cinza",
+    ano: "2006",
+  },
+  {
+    marca: "Pontiac",
+    modelo: "Trans-Sport SE 3.1",
+    renavam: "66338019947",
+    placa: "MVH-1522",
+    cor: "Prata",
+    ano: "1991",
+  },
+  {
+    marca: "RAM",
+    modelo: "2500 LARAMIE SLT TROPIV. 6.7 4x4 Diesel",
+    renavam: "56405440800",
+    placa: "MZW-3658",
+    cor: "Verde",
+    ano: "2012",
+  },
+];
+
+function generateCompleteCar() {
+  return cars[getRandomInt(0, cars.length - 1)];
+}
 module.exports = {
   generateNeighborhood,
   generateCEP,
@@ -6958,4 +7438,6 @@ module.exports = {
   generateLoremIpsum,
   generateDate,
   generatePassword,
+  generateFakePolicyNumber,
+  generateCompleteCar,
 };
